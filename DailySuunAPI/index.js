@@ -1,0 +1,10 @@
+const express = require('express')
+const config = require('./config')
+const weather = require('./routes/weather')
+const error = require('./utils/error')
+const app = express()
+weather(app)
+app.use(error)
+app.listen(config.api.port, () => {
+    console.log('Server listen on port ', config.api.port)
+})

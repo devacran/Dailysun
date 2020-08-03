@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+.calendar-section__header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: 40px;
+  place-items: center;
+  background-color: #d9d9d9;
+  font-size: 25px;
+}
+.calendar-section__grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 12vw;
+  padding: 20px;
+  grid-gap: 20px;
+  background-color: #66b1f2;
+}
+
+.day-card {
+  border-radius: 10px;
+  width: 100%;
+  background-color: #f8fdff;
+  padding: 10px 0;
+}
+.day-card .day-card--empty {
+  border-radius: 10px;
+  width: 100%;
+  background-color: #66b1f2;
+  padding: 10px 0;
+}
+.day-card__imgContainer {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 60%;
+}
+.day-card__img {
+  width: 60px;
+  height: 60px;
+}
+.day-card__img img {
+  background-color: blue;
+  width: 100%;
+  height: 100%;
+}
+.day-card__day {
+  color: #66b1f2;
+  background-color: #98ee99;
+  text-align: center;
+  font-size: 36px;
+}

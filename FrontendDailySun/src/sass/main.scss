@@ -1,0 +1,10 @@
+@import "./globals.scss";
+@import "./calendar.scss";
+
+@import "./base/switch";
+/* import de lib*/
+@import "./lib/variables";
+@import "./lib/settings";
+/*import de components*/
+@import "./components/header";
+@import "./components/modal";
