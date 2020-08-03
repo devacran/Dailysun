@@ -1,0 +1,148 @@
+/**/
+/* se compila y renderiza todo antes de enviarlo a styles.scss */
+/*import de bases*/
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@700&family=Prosto+One&family=Roboto:ital,wght@0,400;1,300&display=swap");
+.switch {
+  position: relative;
+  display: inline-flex;
+  width: 60px;
+  height: 34px;
+  text-align: center;
+  justify-content: center;
+  border-radius: 34px;
+  font-family: "Prosto One", cursive;
+}
+
+.switch:hover {
+  box-shadow: 0px 3px 26px 0px rgba(0, 0, 0, 0.75);
+  border: 1px solid black;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #66BB6A;
+  transition: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* import de lib*/
+/* variables*/
+/* ACLARACIONES
+
+El naming sera bajo la nomenclatura PascalCase*/
+/*-- FUENTES--*/
+/*--Colores--*/
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+/*import de components*/
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: linear-gradient(#66B1F2, #D6EBF4);
+}
+
+.navbar {
+  display: flex;
+  width: 90%;
+  min-height: 85px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar__logo {
+  width: 10%;
+}
+
+.navbar__logo img {
+  width: 100%;
+  height: 0 auto;
+}
+
+.navbar__search {
+  display: flex;
+}
+
+.navbar__search input {
+  min-height: 30px;
+  min-width: 250px;
+  border-radius: 15px;
+  text-align: center;
+  outline: none;
+}
+
+.iconSearch {
+  text-decoration: none;
+}
+
+.iconSearch img {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+}
+
+.navbar_switch {
+  display: flex;
+  justify-content: space-around;
+  width: 10%;
+}
+
+.navbar_switch img {
+  width: 30px;
+  cursor: pointer;
+}
+
+.navbar_switch img:checked {
+  src: url("./src/assets/images/location.png");
+}

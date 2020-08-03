@@ -1,0 +1,16 @@
+meta(name='viewport', content='width=device-width, initial-scale=1.0')
+link(rel="stylesheet", href="../src/css/styles.css")
+header.header
+  navbar.navbar
+    div.navbar__logo
+      img(src="./src/assets/images/logo.svg", alt="logo de Daily Sun")
+    div.navbar__search
+      input(type="text" value=" Buscar ciudad")
+      a.iconSearch(href="") 
+        img(src="./src/assets/images/busqueda.png", alt=" boton de busqqueda")
+    div.navbar_switch
+     include switch.pug
+     img(src="./src/assets/images/locationOff.png", alt=" boton de activar, desactivar ubicación", srcset="")
+      
+    
+     
