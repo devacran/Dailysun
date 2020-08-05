@@ -2,11 +2,9 @@ import $calendar from "../pug/calendar/calendar.pug";
 import { getMonthData } from "../utils/api";
 import { getFirstDayOfTheMonth } from "../utils/getDates.js";
 import days from "./calendar_days_delete_this.js";
+import createPage from "../utils/createPage";
 const Calendar = () => {
-  const app = document.getElementById("app");
-  const el = document.createElement("div");
-  el.innerHTML = $calendar;
-  app.appendChild(el);
+  createPage($calendar);
   const parent = document.getElementById("calendar-section");
   const dayCard = document.createElement("div");
   const firstDayOfTheMonth = getFirstDayOfTheMonth();

@@ -1,6 +1,5 @@
-import "./sass/styles.scss";
 import router from "./router/index.js";
-
+import "./sass/styles.scss";
 //Para saber que ya cargo la pagina, si ya se lanza la funcion router
 async function load() {
   await router();
