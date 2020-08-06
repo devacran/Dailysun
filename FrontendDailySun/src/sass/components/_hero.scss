@@ -1,0 +1,120 @@
+.hero__section {
+  border: 1px solid red;
+  width: 100%;
+  background: linear-gradient($ColorBoby2, $ColorButtonActivated);
+  height: max-content;
+  // background-image: url("./../assets/images/rain.jpg");
+  background-repeat: no-repeat;
+}
+.hero__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  // height: 60vh;
+  grid-template-areas: "today hero hero  advice";
+}
+
+.today {
+  display: flex;
+  grid-area: today;
+  justify-content: flex-end;
+}
+.hero {
+  grid-area: hero;
+  // background-image: url("./../assets/images/rain.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: contain;
+}
+
+.advice {
+  display: flex;
+  grid-area: advice;
+  justify-content: flex-start;
+}
+/*SECTION TODAY*/
+.hero__container--today {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 15px;
+  width: 80%;
+  height: 100%;
+  background-color: #dbf2f347;
+  border-radius: 5%;
+  border: 1px solid #6d6666;
+  // border: 1px solid red;
+  // background: ;
+}
+
+.titleDay {
+  font-family: $Infolayout2;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 0.5em;
+}
+.today__image--img {
+  width: fit-content;
+}
+
+.info__today {
+  display: flex;
+  width: 90%;
+  justify-content: space-evenly;
+  margin: 5px;
+  padding: 15px;
+  align-items: center;
+}
+
+.info__today img {
+  width: 50px;
+  height: 50px;
+}
+
+.probabilyRain {
+  font-size: 1.2em;
+}
+
+/*hero section media*/
+.hero__container--hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+  background-image: url("./../assets/images/rain.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #dbf2f347;
+  border-radius: 5%;
+  border: 1px solid #6d6666;
+
+  // border: 1px solid red;
+}
+.hero__header--title {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.tempPromedy {
+  font-size: 55px;
+  font-family: $InfoLayout;
+  font-weight: 800;
+  background-color: $ColorBoby2;
+  color: red;
+}
+
+.hero__container--advice {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 15px;
+  width: 80%;
+  height: 100%;
+  background-color: #dbf2f347;
+  border-radius: 5%;
+  border: 1px solid #6d6666;
+}
