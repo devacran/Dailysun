@@ -139,5 +139,6 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+# Misc
+documentacion.txt
 # End of https://www.toptal.com/developers/gitignore/api/node,macos
-

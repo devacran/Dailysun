@@ -8,27 +8,28 @@ function weather(app) {
     app.use('/weather', router)
 
     router.get('/today', async (req, res, next) => {
-        const { lat, lon } = req.query //weekly?latitude=123
-        const u =
-            url +
-            'weather?lat=' +
-            lat +
-            '&lon=' +
-            lon +
-            '&units=metric' + //Cambiar para farenheit
-            '&appid=' +
-            apiKey
+        const { lat, lon, city } = req.query //weekly?latitude=123
         let data
+        const query = {
+            lat,
+            units: 'metric',
+            lon,
+            appid: apiKey,
+        }
         try {
-            const res = await axios.get(u)
-            data = res.data
+            const u = `${url}weather`
+            const r = await axios.get(u, {
+                params: query,
+            })
+            data = r.data
+            response.success(res, data, 200)
+            next()
         } catch (e) {
+            console.log(e)
             e.statusCode = 400
             e.message = 'Ciudad no encontrada'
             next(e)
         }
-        response.success(res, data, 200)
-        next()
     })
     router.get('/', async (req, res, next) => {
         const { lat, lon } = req.query //weekly?latitude=123
@@ -43,8 +44,8 @@ function weather(app) {
             apiKey
         let data
         try {
-            const res = await axios.get(u)
-            data = res.data
+            const r = await axios.get(u)
+            data = r.data
         } catch (e) {
             e.statusCode = 400
             e.message = 'Ciudad no encontrada'
