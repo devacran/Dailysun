@@ -1,13 +1,13 @@
 import $home from "../pug/home/home.pug";
+import createPage from "../utils/createPage.js";
 import HourSection from "../components/HourSection.js";
-function Home() {
-  let rendered = false;
-  const app = document.getElementById("app");
-  const el = document.createElement("div");
-  el.innerHTML = $home;
-  app.appendChild(el);
-  !rendered && HourSection();
-  rendered = true;
-}
+import { getData } from "../utils/network";
+
+const Home = async () => {
+  const { hourly } = await getData();
+  console.log(hourly);
+  createPage($home);
+  await HourSection({ hourly: hourly });
+};
 
 export default Home;

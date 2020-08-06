@@ -21,6 +21,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
+
         use: [
           // Creates `style` nodes from JS strings
           "style-loader",
@@ -41,7 +42,7 @@ module.exports = {
         use: "html-loader"
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(png|jpe?g|gif|svg|ttf|woff|eot|woff2)$/i,
         exclude: [/node_modules/, /public/, /dist/],
         use: [
           {

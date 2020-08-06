@@ -24,6 +24,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "style-loader": "^1.2.1"
   }
