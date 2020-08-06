@@ -1,0 +1,16 @@
+/* se compila y renderiza todo antes de enviarlo a styles.scss */
+
+
+/*import de bases*/
+
+@import "base/switch";
+
+ /* import de lib*/
+@import "lib/variables";
+@import "lib/settings";
+
+
+
+
+/*import de components*/
+@import "componentes/header";
