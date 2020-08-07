@@ -1,19 +1,24 @@
 .calendar-section {
+  border-radius: 10px;
+  color: white;
+  background-color: #4a899ca6;
   &__day-names {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     place-items: center;
-    text-transform: uppercase;
+    margin-top: 10px;
     font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
   }
   &__month-name {
     font-size: 35px;
     text-align: center;
-    margin: 10px;
   }
   &__header {
-    background-color: #91bcda;
-    height: 80px;
+    height: 90px;
+    padding: 10px;
+    border-bottom: 1px solid white;
     // background-color: #d9d9d9;
   }
   &__grid {
@@ -23,15 +28,13 @@
     grid-auto-rows: 12vw;
     padding: 20px;
     grid-gap: 1px;
-    background-color: #a7dbff;
   }
 }
 
 .day-card {
-  border-radius: 10px;
   width: 100%;
-  background-color: #f8fdff;
   padding: 10px 0;
+  background-color: #4a899ca6;
   .day-card--empty {
     border-radius: 10px;
     width: 100%;
@@ -45,16 +48,16 @@
     height: 60%;
   }
   &__img {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     i {
       //cambiar por imagen
       color: yellow;
-      font-size: 59px;
+      font-size: 45px;
     }
   }
   &__day {
     text-align: center;
-    font-size: 25px;
+    font-size: 28px;
   }
 }

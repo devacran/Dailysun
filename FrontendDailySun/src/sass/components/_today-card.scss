@@ -1,0 +1,106 @@
+.today-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &__clickable {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: transparent;
+  }
+  &__header {
+    display: flex;
+    background-color: pink;
+    padding: 1em;
+    height: 50px;
+    color: white;
+  }
+  &__header--2 {
+    background-color: #1f86c9;
+  }
+  &__header--1 {
+    background-color: #0679c0;
+  }
+  &__header--0 {
+    background-color: #1169b2;
+  }
+  &__header--base {
+    display: flex;
+    padding: 1em;
+    color: white;
+  }
+  &__day-title--base {
+    font-size: 20px;
+  }
+  &__day-title--base {
+    font-size: 30px;
+  }
+  &__day-temp {
+    margin-left: auto;
+  }
+  &__day-status {
+    display: block;
+    text-align: center;
+  }
+  &__day-icon {
+    height: 20px;
+    width: 20px;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &__day-icon--base {
+    height: 120px;
+    width: 120px;
+    margin: 0 auto;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &__container {
+    width: 300px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  &__card {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.5s;
+  }
+  &__card--2 {
+    background: linear-gradient(#084b72, #a1bcd0);
+
+    bottom: -90%;
+  }
+  &__card--1 {
+    background: linear-gradient(#084b72, #a1bcd0);
+
+    bottom: -80%;
+  }
+  &__card--0 {
+    background: linear-gradient(#084b72, #a1bcd0);
+    bottom: -70%;
+  }
+  &__content {
+    padding: 0 3em;
+  }
+  &__day-info {
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+    span {
+      width: 63px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

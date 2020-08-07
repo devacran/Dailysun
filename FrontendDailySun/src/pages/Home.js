@@ -1,13 +1,18 @@
 import $home from "../pug/home/home.pug";
 import createPage from "../utils/createPage.js";
 import HourSection from "../components/HourSection.js";
-import { getData } from "../utils/network";
+import TodayCard from "../components/TodayCard.js";
+import CityCard from "../components/CityCard.js";
+import { getData, getTodayData } from "../utils/network";
 
 const Home = async () => {
-  const { hourly } = await getData();
-  console.log(hourly);
+  const { hourly, daily } = await getData();
+  const today = await getTodayData();
+  console.log(today);
   createPage($home);
-  await HourSection({ hourly: hourly });
+  await CityCard({ today });
+  await TodayCard({ daily, today });
+  await HourSection({ hourly });
 };
 
 export default Home;

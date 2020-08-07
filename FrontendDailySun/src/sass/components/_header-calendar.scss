@@ -3,5 +3,33 @@
   grid-template-columns: 1fr 1fr;
   width: 100%;
   height: 80px;
-  font-family: $FontTitles;
+
+  &__title {
+  }
+  &__city-info {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 1em;
+  }
+  &__city-title {
+    font-family: $FontTitleSpecial;
+    font-size: 28px;
+    padding: 0 1em;
+    margin: auto;
+  }
+  &__time {
+    font-size: 22px;
+    margin-left: 1em;
+  }
+  &__weather {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  &__weather-icon {
+    margin: 0 auto;
+  }
+  &__right {
+    margin-left: auto;
+  }
 }

@@ -1,0 +1,34 @@
+.city-card {
+  width: 100%;
+  height: 100%;
+  &__container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  &__info {
+    text-align: right;
+    width: 100%;
+    padding: 20px;
+  }
+  &__weather-status {
+    color: black;
+    font-weight: 500;
+    font-size: 26px;
+  }
+  &__city-name {
+    font-family: $FontTitleSpecial;
+    font-size: 60px;
+    color: white;
+  }
+  &__temp {
+    color: black;
+    font-weight: 500;
+    font-size: 26px;
+  }
+  &__date {
+    color: white;
+    font-size: 18px;
+  }
+}

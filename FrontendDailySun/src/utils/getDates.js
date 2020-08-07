@@ -24,3 +24,35 @@ export const utcToLocalTime = sec => {
   });
   return localtime;
 };
+export const utcToLocalDate = sec => {
+  const time = new Date(0);
+  time.setUTCSeconds(sec);
+  const localDate = time.toLocaleString("es-MX", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+  return localDate;
+};
+export const utcToLocalTimeDay = sec => {
+  const time = new Date(0);
+  time.setSeconds(sec);
+  const dayName = time.toString().slice(0, 3);
+  switch (dayName) {
+    case "Sat":
+      return "Sábado";
+    case "Sun":
+      return "Domingo";
+    case "Mon":
+      return "Lunes";
+    case "Tue":
+      return "Martes";
+    case "Wed":
+      return "Miércoles";
+    case "Thu":
+      return "Jueves";
+    case "Fri":
+      return "Viernes";
+  }
+};

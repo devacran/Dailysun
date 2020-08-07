@@ -6,6 +6,7 @@ import { getTodayData } from "../utils/network";
 
 const Calendar = async () => {
   const data = await getTodayData();
+  console.log(data);
   createPage($calendar);
   HeaderCalendar(data);
   CalendarSection();
