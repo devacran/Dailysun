@@ -21,7 +21,7 @@ const CityCard = ({ today }) => {
         </div>
     </div>
     `);
-
+  parent.innerHTML = "";
   cityCard.innerHTML = renderCityCard.join(``);
   parent.appendChild(cityCard).setAttribute("class", "city-card__container");
 };

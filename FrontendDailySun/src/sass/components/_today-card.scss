@@ -2,7 +2,9 @@
   position: relative;
   width: 100%;
   height: 100%;
-
+  &__skeleton {
+    background-color: initial;
+  }
   &__clickable {
     position: absolute;
     top: 0;

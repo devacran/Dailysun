@@ -1,6 +1,7 @@
 import script from "../js/chart.js";
 import { utcToLocalTime } from "../utils/getDates.js";
-const HourSection = async ({ hourly }) => {
+const HourSection = async ({ data }) => {
+  const { hourly } = data;
   const parent = document.getElementById("hour-section");
   const hourCards = document.createElement("div");
   const hours = hourly.slice(1, 13); //Solo las primeras 12 horas

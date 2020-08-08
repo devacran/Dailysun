@@ -66,7 +66,7 @@ const TodayCard = ({ daily, today }) => {
       </div>
       `);
   });
-
+  parent.innerHTML = "";
   todayCard.innerHTML = renderTodayCard.join(``);
   parent.appendChild(todayCard).setAttribute("class", "today-card__container");
   toggleCard();
