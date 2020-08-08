@@ -1,0 +1,26 @@
+.search-box {
+  display: flex;
+  border-radius: 10px;
+  height: 40px;
+  width: 300px;
+  background-color: blue;
+}
+.search-box__dropdown {
+  position: relative;
+  background-color: yellow;
+  height: 100%;
+}
+.search-box__input {
+  position: relative;
+  background-color: green;
+  height: 100%;
+}
+.search-box__dropdown-list,
+.search-box__dropdown-suggestion-list {
+  display: none;
+  position: absolute;
+  bottom: -120%;
+  left: 0;
+  right: 0;
+  background-color: red;
+}

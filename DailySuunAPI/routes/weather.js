@@ -8,12 +8,13 @@ function weather(app) {
     app.use('/weather', router)
 
     router.get('/today', async (req, res, next) => {
-        const { lat, lon, city } = req.query //weekly?latitude=123
+        const { lat, lon, q } = req.query
         let data
         const query = {
             lat,
             units: 'metric',
             lon,
+            q,
             appid: apiKey,
         }
         try {

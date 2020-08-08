@@ -6,12 +6,13 @@ const TodayCardSkeleton = () => {
   todayCard.innerHTML = renderTodayCard;
   parent.appendChild(todayCard).setAttribute("class", "today-card__container");
 };
-const CityCardSkeleton = () => {
+const CityCardSkeleton = appState => {
   const parent = document.getElementById("city-card");
   const cityCard = document.createElement("div");
   const renderCityCard = `
     <div class='city-card city-card__skeleton'>
-      <div class='city-card__error'>Parece que hubo un error :(</div>
+      <a id='cambiar'>Cambiar estado</a>
+      <div class='city-card__error'>Parece que hubo un error :( </div>
     </div>
     `;
   parent.innerHTML = "";

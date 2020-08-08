@@ -4,7 +4,7 @@ import HeaderCalendar from "../components/HeaderCalendar";
 import createPage from "../utils/createPage";
 import { getTodayData } from "../utils/network";
 
-const Calendar = async () => {
+const Calendar = async appState => {
   const data = await getTodayData();
   console.log(data);
   createPage($calendar);
