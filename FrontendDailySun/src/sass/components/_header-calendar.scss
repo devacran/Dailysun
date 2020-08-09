@@ -11,6 +11,7 @@
     height: 100%;
     align-items: center;
     padding: 0 1em;
+    text-transform: capitalize;
   }
   &__city-title {
     font-family: $FontTitleSpecial;
@@ -22,12 +23,22 @@
     font-size: 22px;
     margin-left: 1em;
   }
+  &__temp {
+    display: flex;
+    align-items: center;
+  }
   &__weather {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
   &__weather-icon {
     margin: 0 auto;
+    width: 20px;
+    height: 20px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
   &__right {
     margin-left: auto;

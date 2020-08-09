@@ -1,27 +1,32 @@
 .search-box {
   display: flex;
-  border-radius: 10px;
+  border-radius: 20px;
   height: 40px;
   width: 300px;
   background-color: #4a4a4a40;
+  color: #2d2d2d;
+  align-items: center;
 }
 .search-box__dropdown {
   display: flex;
   position: relative;
   align-items: center;
-  height: 100%;
   width: 80px;
   padding: 5px;
-  border-radius: 10px 0px 0 10px;
   border-right: 1px solid #b7b7b7;
+  background-color: white;
+  height: 70%;
+  border-radius: 20px 0px 0px 20px;
+  margin-left: 2%;
 }
 .search-box__input {
   position: relative;
-  height: 100%;
+  height: 70%;
   input {
     height: 100%;
     border: none;
     padding-left: 1em;
+    border-radius: 0px 20px 20px 00px;
     &:focus {
       outline: none;
     }
@@ -31,10 +36,10 @@
 .search-box__dropdown-suggestion-list {
   display: none;
   position: absolute;
-  bottom: -110%;
+  bottom: -165%;
   left: 0;
   right: 0;
-  background-color: red;
+  background-color: white;
   padding: 5px;
   height: 40px;
   border-radius: 5px;

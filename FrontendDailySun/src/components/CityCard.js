@@ -10,17 +10,14 @@ const CityCard = ({ today }) => {
   let componentStr = [];
   componentStr.push(`
     <div class="city-card__info">
-        <div class="city-card__weather-status">
-            ${today.weather[0].main}
+        <div class="city-card__temp">
+            ${Math.floor(today.main.temp)}°C
         </div>
         <div class="city-card__city-name">
             ${today.name}
         </div>
         <div class="city-card__date">
             ${currentDate}
-        </div>
-        <div class="city-card__temp">
-            ${today.main.temp}
         </div>
     </div>
     `);

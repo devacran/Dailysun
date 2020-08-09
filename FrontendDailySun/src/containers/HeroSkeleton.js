@@ -1,26 +1,35 @@
-const TodayCardSkeleton = () => {
-  const parent = document.getElementById("today-card");
-  const todayCard = document.createElement("div");
-  const renderTodayCard = `<div class='today-card today-card__skeleton'/>`;
-  parent.innerHTML = "";
-  todayCard.innerHTML = renderTodayCard;
-  parent.appendChild(todayCard).setAttribute("class", "today-card__container");
+import AppComponent from "../utils/createComponent";
+const TodayCardSkeleton = error => {
+  const todayCardSkeleton = new AppComponent({
+    parent: "today-card",
+    className: "today-card__container"
+  });
+  let componentStr;
+  if (error) {
+    componentStr = `<div class='today-card today-card__skeleton--error'/>`;
+  } else {
+    componentStr = `<div class='today-card today-card__skeleton'/>`;
+  }
+  todayCardSkeleton.renderComponent(componentStr);
 };
-const CityCardSkeleton = appState => {
-  const parent = document.getElementById("city-card");
-  const cityCard = document.createElement("div");
-  const renderCityCard = `
-    <div class='city-card city-card__skeleton'>
-      <a id='cambiar'>Cambiar estado</a>
-      <div class='city-card__error'>Parece que hubo un error :( </div>
-    </div>
-    `;
-  parent.innerHTML = "";
-  cityCard.innerHTML = renderCityCard;
-  parent.appendChild(cityCard).setAttribute("class", "city-card__container");
+const CityCardSkeleton = error => {
+  const cityCardSkeleton = new AppComponent({
+    parent: "city-card",
+    className: "city-card__container"
+  });
+  let componentStr;
+  if (error) {
+    componentStr = `
+      <div class='city-card city-card__skeleton--error'>
+        <div class='city-card__error'>Parece que hubo un error :( </div>
+      </div>`;
+  } else {
+    componentStr = `<div class='city-card city-card__skeleton'/>`;
+  }
+  cityCardSkeleton.renderComponent(componentStr);
 };
-const HeroSkeleton = async () => {
-  TodayCardSkeleton();
-  CityCardSkeleton();
+const HeroSkeleton = async error => {
+  TodayCardSkeleton(error);
+  CityCardSkeleton(error);
 };
 export default HeroSkeleton;

@@ -5,8 +5,9 @@ import createPage from "../utils/createPage";
 import { getTodayData } from "../utils/network";
 
 const Calendar = async appState => {
-  const data = await getTodayData();
-  console.log(data);
+  const data = appState.state.todayData
+    ? appState.state.todayData
+    : await getTodayData();
   createPage($calendar);
   HeaderCalendar(data);
   CalendarSection();

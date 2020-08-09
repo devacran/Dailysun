@@ -8,7 +8,7 @@ function script(props) {
   let labels = [];
   let datasets = [];
   props.slice(0, 14).forEach((hour, i) => {
-    datasets.push(hour.temp);
+    datasets.push(Math.floor(hour.temp));
     labels.push(utcToLocalTime(hour.dt));
   });
   const data = {
@@ -52,7 +52,7 @@ function script(props) {
             drawBorder: false
           },
           ticks: {
-            min: 15, //Valor minimo de temp
+            min: 10, //Valor minimo de temp
             max: 35, //Valor maximo de temp
             stepSize: 10
           }

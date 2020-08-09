@@ -14,9 +14,7 @@ const Home = async appState => {
   const today = appState.state.todayData
     ? appState.state.todayData
     : await getTodayData();
-  console.log("today data2", today);
-  console.log("today data1", await getTodayData());
-  data || today ? await Hero({ today, data }) : await HeroSkeleton();
+  data || today ? await Hero({ today, data }) : await HeroSkeleton("error");
   data ? await HourSection({ data }) : await HourSectionSkeleton();
 };
 

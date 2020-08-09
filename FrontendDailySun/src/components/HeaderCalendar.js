@@ -5,13 +5,20 @@ const HeaderCalendar = data => {
     parent: "header-calendar__right",
     className: "header-calendar__city-info"
   });
+  console.log(data);
   const currentTime = utcToLocalTime(data.dt);
   const componentStr = `
       <div class='header-calendar__city-title'>${data.name}</div>
       <div class='header-calendar__weather'>
         <div>${data.weather[0].description}</div>
-        <div class='header-calendar__weather-icon'><i class="wi wi-day-sunny"></i></div>
-        <span>${data.main.temp}°c</span>
+        <div class='header-calendar__weather-icon'>
+          <img src='http://openweathermap.org/img/wn/${
+            data.weather[0].icon
+          }@2x.png'/>
+        </div>
+        <span class='header-calendar__temp'>${Math.floor(
+          data.main.temp
+        )}°C</span>
         <span class='header-calendar__time'>${currentTime}</span>
       </div>
 

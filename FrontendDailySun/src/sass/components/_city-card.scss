@@ -7,6 +7,19 @@
     width: 100%;
     height: 100%;
   }
+  &__skeleton {
+    position: relative;
+    overflow: hidden;
+    background-color: #0000008f;
+    &::before {
+      @include loader();
+    }
+  }
+  &__skeleton--error {
+    position: relative;
+    overflow: hidden;
+    background-color: #0000008f;
+  }
   &__info {
     text-align: right;
     width: 100%;
@@ -23,9 +36,9 @@
     color: white;
   }
   &__temp {
-    color: black;
+    color: white;
     font-weight: 500;
-    font-size: 26px;
+    font-size: 42px;
   }
   &__date {
     color: white;
