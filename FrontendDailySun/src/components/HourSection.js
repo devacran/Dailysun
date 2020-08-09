@@ -1,9 +1,12 @@
 import script from "../js/chart.js";
 import { utcToLocalTime } from "../utils/getDates.js";
+import AppComponent from "../utils/createComponent.js";
 const HourSection = async ({ data }) => {
   const { hourly } = data;
-  const parent = document.getElementById("hour-section");
-  const hourCards = document.createElement("div");
+  const hourSection = new AppComponent({
+    parent: "hour-section",
+    className: "hour-section__info"
+  });
   const hours = hourly.slice(1, 13); //Solo las primeras 12 horas
   const renderHours = [];
   hours.forEach((hour, index) => {
@@ -18,8 +21,7 @@ const HourSection = async ({ data }) => {
         </div>
       `);
   });
-  hourCards.innerHTML = renderHours.join(``);
-  parent.appendChild(hourCards).setAttribute("class", "hour-section__info");
+  hourSection.renderComponent(renderHours);
   script(hourly);
 };
 export default HourSection;

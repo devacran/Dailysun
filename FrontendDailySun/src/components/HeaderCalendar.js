@@ -1,11 +1,12 @@
+import AppComponent from "../utils/createComponent.js";
 import { utcToLocalTime } from "../utils/getDates";
 const HeaderCalendar = data => {
-  const parent = document.getElementById("header-calendar__right");
-  const headerSectionRight = document.createElement("div");
-
+  const headerCalendar = new AppComponent({
+    parent: "header-calendar__right",
+    className: "header-calendar__city-info"
+  });
   const currentTime = utcToLocalTime(data.dt);
-  headerSectionRight.innerHTML = `
-
+  const componentStr = `
       <div class='header-calendar__city-title'>${data.name}</div>
       <div class='header-calendar__weather'>
         <div>${data.weather[0].description}</div>
@@ -15,8 +16,6 @@ const HeaderCalendar = data => {
       </div>
 
   `;
-  parent
-    .appendChild(headerSectionRight)
-    .setAttribute("class", "header-calendar__city-info");
+  headerCalendar.renderComponent(componentStr);
 };
 export default HeaderCalendar;

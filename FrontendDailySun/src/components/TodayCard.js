@@ -1,11 +1,13 @@
+import AppComponent from "../utils/createComponent.js";
 import { utcToLocalTimeDay } from "../utils/getDates";
 const TodayCard = ({ daily, today }) => {
-  const parent = document.getElementById("today-card");
-  const todayCard = document.createElement("div");
+  const todayCard = new AppComponent({
+    parent: "today-card",
+    className: "today-card__container"
+  });
   const days = daily.slice(1, 4); //Aqui va la info de la api
-  const currentDayName = utcToLocalTimeDay(1596913200);
-  let renderTodayCard = [];
-  renderTodayCard.push(`
+  let componentStr = [];
+  componentStr.push(`
     <div class="today-card__card today-card__card">
         <div class="today-card__clickable"></div>
         <div class="today-card__header--base">
@@ -32,7 +34,7 @@ const TodayCard = ({ daily, today }) => {
     </div>
     `);
   days.forEach((day, index) => {
-    renderTodayCard.push(`
+    componentStr.push(`
       <div class="today-card__card today-card__card--${index}">
           <div class="today-card__clickable"></div>
           <div class="today-card__header today-card__header--${index}">
@@ -66,9 +68,7 @@ const TodayCard = ({ daily, today }) => {
       </div>
       `);
   });
-  parent.innerHTML = "";
-  todayCard.innerHTML = renderTodayCard.join(``);
-  parent.appendChild(todayCard).setAttribute("class", "today-card__container");
+  todayCard.renderComponent(componentStr);
   toggleCard();
 };
 export default TodayCard;

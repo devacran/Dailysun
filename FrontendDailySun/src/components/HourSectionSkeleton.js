@@ -1,8 +1,10 @@
+import AppComponent from "../utils/createComponent.js";
 const HourSectionSkeleton = () => {
-  const parent = document.getElementById("hour-section");
-  const hourCards = document.createElement("div");
-  const renderHours = `<div class='hour-section__error'>Parece que hubo un error :(</div>`;
-  hourCards.innerHTML = renderHours;
-  parent.appendChild(hourCards).setAttribute("class", "hour-section__info");
+  const hourSectionSkeleton = new AppComponent({
+    parent: "hour-section",
+    className: "hour-section__info"
+  });
+  const componentStr = `<div class='hour-section__error'>Parece que hubo un error :(</div>`;
+  hourSectionSkeleton.renderComponent(componentStr);
 };
 export default HourSectionSkeleton;

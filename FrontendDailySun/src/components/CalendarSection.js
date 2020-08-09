@@ -1,3 +1,4 @@
+import AppComponent from "../utils/createComponent";
 import { getMonthData } from "../utils/network";
 import {
   getFirstDayOfTheMonth,
@@ -6,14 +7,21 @@ import {
 import days from "./calendar_days_delete_this.js";
 
 const CalendarSection = () => {
-  const parent = document.getElementById("calendar-section");
-  const dayCard = document.createElement("div");
-  const calendarHeader = document.createElement("div");
+  const calendarSection = new AppComponent({
+    parent: "calendar-section",
+    className: "calendar-section__container"
+  });
+  const calendarGrid = document.createElement("div");
+  calendarGrid.setAttribute("class", "calendar-section__grid");
   const firstDayOfTheMonth = getFirstDayOfTheMonth();
   //debe obtenerse con getMonthData
   const todayDate = new Date();
-  const renderDays = [];
-  calendarHeader.innerHTML = `
+  const dayCards = [];
+  const componentStr = [];
+  let calendarGridStr = [];
+
+  const calendarHeaderStr = `
+  <div class='calendar-section__header'>
     <div class='calendar-section__month-name'>
       August
     </div>
@@ -26,11 +34,14 @@ const CalendarSection = () => {
       <div>Viernes</div>
       <div>Sabado</div>
     </div>
+    </div>
   `;
+  componentStr.push(calendarHeaderStr);
+
   if (firstDayOfTheMonth === "Sun") {
     //Si el primer dia del mes es domingo no añade tarjetas vacias
     days.forEach((day, index) => {
-      renderDays.push(`
+      dayCards.push(`
         <div class="day-card">
           <div class="day-card__imgContainer">
             <div class="day-card__img"><img></div>
@@ -45,7 +56,7 @@ const CalendarSection = () => {
       skips[firstDayOfTheMonth]
     );
     previousMonthDays.forEach(day => {
-      renderDays.push(`
+      dayCards.push(`
     <div class="day-card--empty">
       <div class="day-card__imgContainer">
         <div class="day-card__img"><i class="wi wi-day-sunny"></i></div>
@@ -55,7 +66,7 @@ const CalendarSection = () => {
     `);
     });
     days.forEach((day, index) => {
-      renderDays.push(`
+      dayCards.push(`
         <div class="day-card">
           <div class="day-card__imgContainer">
             <div class="day-card__img"><i class="wi wi-day-sunny"></i></div>
@@ -65,11 +76,13 @@ const CalendarSection = () => {
         `);
     });
   }
+  calendarGridStr = `
+    <div class='calendar-section__grid'>
+    ${dayCards.join(``)}
+    </div>
+  `;
+  componentStr.push(calendarGridStr);
 
-  dayCard.innerHTML = renderDays.join(``);
-  parent
-    .appendChild(calendarHeader)
-    .setAttribute("class", "calendar-section__header");
-  parent.appendChild(dayCard).setAttribute("class", "calendar-section__grid");
+  calendarSection.renderComponent(componentStr);
 };
 export default CalendarSection;

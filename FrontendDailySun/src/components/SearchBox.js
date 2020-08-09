@@ -1,7 +1,7 @@
+import AppComponent from "../utils/createComponent.js";
 import searchBoxScript from "../js/searchBox.js";
 const SearchBox = appState => {
-  const parent = document.getElementById("navbar__searchBox");
-  const searchBox = document.createElement("div");
+  const searchBox = new AppComponent({ parent: "navbar__searchBox" });
   const renderSearchBox = `
   <form class="search-box" id="search-box">
           <div id="search-box__dropdown" class="search-box__dropdown">
@@ -23,9 +23,7 @@ const SearchBox = appState => {
           </div>
       </form>
   `;
-  parent.innerHTML = "";
-  searchBox.innerHTML = renderSearchBox;
-  parent.appendChild(searchBox);
+  searchBox.renderComponent(renderSearchBox);
   searchBoxScript(appState);
 };
 export default SearchBox;

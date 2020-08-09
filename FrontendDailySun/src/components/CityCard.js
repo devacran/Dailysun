@@ -1,11 +1,14 @@
+import AppComponent from "../utils/createComponent.js";
 import { utcToLocalDate } from "../utils/getDates.js";
 const CityCard = ({ today }) => {
-  const parent = document.getElementById("city-card");
-  const cityCard = document.createElement("div");
+  const cityCard = new AppComponent({
+    parent: "city-card",
+    className: "city-card__container"
+  });
   const days = [1, 2, 3]; //Aqui va la info de la api
   const currentDate = utcToLocalDate(today.dt);
-  let renderCityCard = [];
-  renderCityCard.push(`
+  let componentStr = [];
+  componentStr.push(`
     <div class="city-card__info">
         <div class="city-card__weather-status">
             ${today.weather[0].main}
@@ -21,8 +24,6 @@ const CityCard = ({ today }) => {
         </div>
     </div>
     `);
-  parent.innerHTML = "";
-  cityCard.innerHTML = renderCityCard.join(``);
-  parent.appendChild(cityCard).setAttribute("class", "city-card__container");
+  cityCard.renderComponent(componentStr);
 };
 export default CityCard;
