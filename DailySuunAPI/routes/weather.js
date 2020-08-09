@@ -7,6 +7,31 @@ function weather(app) {
     const router = express.Router()
     app.use('/weather', router)
 
+    router.get('/', async (req, res, next) => {
+        const { lat, lon, q } = req.query
+        let data
+        const query = {
+            lat,
+            units: 'metric',
+            lon,
+            q,
+            appid: apiKey,
+        }
+        try {
+            const u = `${url}onecall`
+            const r = await axios.get(u, {
+                params: query,
+            })
+            data = r.data
+            response.success(res, data, 200)
+            next()
+        } catch (e) {
+            console.log(e)
+            e.statusCode = 400
+            e.message = 'Ciudad no encontrada'
+            next(e)
+        }
+    })
     router.get('/today', async (req, res, next) => {
         const { lat, lon, q } = req.query
         let data
@@ -32,7 +57,8 @@ function weather(app) {
             next(e)
         }
     })
-    router.get('/', async (req, res, next) => {
+
+    router.get('/s', async (req, res, next) => {
         const { lat, lon } = req.query //weekly?latitude=123
         const u =
             url +

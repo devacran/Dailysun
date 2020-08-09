@@ -5,12 +5,12 @@ const SearchBox = appState => {
   const renderSearchBox = `
   <form class="search-box" id="search-box">
           <div id="search-box__dropdown" class="search-box__dropdown">
-              <a id="search-box__dropdown-place-holder">zip code</a>
+              <a id="search-box__dropdown-place-holder">C.P</a>
               <div
                   id="search-box__dropdown-list"
                   class="search-box__dropdown-list"
               >
-                  <a>City</a>
+                  <a>Ciudad</a>
               </div>
           </div>
           <div class="search-box__input" id="search-box__input">
