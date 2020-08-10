@@ -4,18 +4,22 @@
   width: 100%;
 }
 .navbar {
-  display: flex;
-  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  place-items: center;
   min-height: 85px;
-  justify-content: space-around;
-  align-items: center;
+  @include sm {
+    grid-template-columns: 1fr 3fr;
+  }
 }
 .navbar__logo {
-  width: 10%;
+  max-width: 130px;
 }
 .navbar__logo img {
   width: 100%;
-  height: 0 auto;
   filter: drop-shadow(2px 4px 6px black);
 }
 .navbar__search {
@@ -68,7 +72,9 @@
 .navbar_switch {
   display: flex;
   justify-content: space-around;
-  width: 10%;
+  @include sm {
+    display: none;
+  }
 }
 .navbar_switch img {
   width: 30px;

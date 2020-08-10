@@ -17,7 +17,7 @@ export const getTodayData = async city => {
     }
   } else {
     try {
-      locationParams = getGeolocation();
+      locationParams = await getGeolocation();
       const data = await axios(`${API_URL}/weather/today`, {
         params: locationParams
       });
@@ -43,7 +43,7 @@ export const getData = async city => {
     }
   }
   try {
-    locationParams = getGeolocation();
+    locationParams = await getGeolocation();
     const data = await axios(`${API_URL}/weather`, { params: locationParams });
     return data.data.body;
   } catch (err) {

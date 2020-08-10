@@ -8,7 +8,8 @@ module.exports = {
   },
   devServer: {
     port: 9000,
-    host: "192.168.0.108"
+    host: "192.168.0.108",
+    https: true
   },
   module: {
     rules: [

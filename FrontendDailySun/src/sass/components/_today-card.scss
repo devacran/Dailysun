@@ -79,6 +79,9 @@
     height: 100%;
     position: relative;
     overflow: hidden;
+    @include sm {
+      width: 100%;
+    }
   }
   &__card {
     border-radius: 10px;

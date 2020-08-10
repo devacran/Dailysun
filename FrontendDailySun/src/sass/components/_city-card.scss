@@ -55,5 +55,9 @@
     font-family: $FontTitleSpecial;
     font-size: 60px;
     color: white;
+    @include sm {
+      text-align: center;
+      font-size: 35px;
+    }
   }
 }

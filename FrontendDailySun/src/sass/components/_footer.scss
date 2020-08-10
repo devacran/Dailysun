@@ -11,7 +11,11 @@
   &__section2 {
     display: grid;
     place-items: center;
+    padding: 1em;
+    text-align: center;
     background-color: #2396f3;
-    height: 100px;
+    div {
+      padding-bottom: 10px;
+    }
   }
 }

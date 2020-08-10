@@ -6,14 +6,27 @@
   margin-bottom: 30px;
   border-radius: 10px;
   background-image: url("../assets/images/autumn.jpg");
+  @include sm {
+    grid-template-columns: 1fr;
+    height: auto;
+    grid-template-areas:
+      "city"
+      "today";
+  }
   &__right {
     border-radius: 10px;
     background: linear-gradient(#084b72c9, #a1bcd0);
-    // background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+    @include sm {
+      height: 470px;
+      grid-area: today;
+      border-radius: 0;
+    }
   }
   &__left {
-    // background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
     background-color: #0000006e;
-    border-radius: 10px;
+    @include sm {
+      grid-area: city;
+      border-radius: 10px 10px 0px 0px;
+    }
   }
 }
