@@ -1,3 +1,4 @@
 module.exports = {
-  API_URL: "http://192.168.0.108:3000"
+  API_URL: "https://daily-suun-api.devacran.vercel.app"
 };
+// https://daily-suun-api.devacran.vercel.app/weather/

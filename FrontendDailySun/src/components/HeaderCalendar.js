@@ -10,7 +10,9 @@ const HeaderCalendar = data => {
   const componentStr = `
       <div class='header-calendar__city-title'>${data.name}</div>
       <div class='header-calendar__weather'>
-        <div>${data.weather[0].description}</div>
+        <div class='header-calendar__weather-status'>${
+          data.weather[0].description
+        }</div>
         <div class='header-calendar__weather-icon'>
           <img src='http://openweathermap.org/img/wn/${
             data.weather[0].icon

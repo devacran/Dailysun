@@ -10,7 +10,7 @@ import { getData, getTodayData } from "../utils/network";
 const Home = async appState => {
   createPage($home);
   await HeroSkeleton();
-  const data = await getData();
+  const data = appState.state.data ? appState.state.data : await getData();
   const today = appState.state.todayData
     ? appState.state.todayData
     : await getTodayData();

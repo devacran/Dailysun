@@ -2,6 +2,7 @@ import config from "../../config.js";
 import getGeolocation from "./getGeolocation";
 import axios from "axios";
 const API_URL = config.API_URL;
+console.log("api url", API_URL);
 export const getTodayData = async city => {
   let locationParams;
   let cityParams;

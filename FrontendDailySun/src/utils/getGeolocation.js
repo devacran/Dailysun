@@ -29,7 +29,7 @@ const getGeolocation = async () => {
       lon: location.position.coords.longitude
     };
   } catch (error) {
-    console.log(error);
+    console.log("Geolocalizacion error", error);
     return {
       lat: 23.7414453,
       lon: -103.98099409999999

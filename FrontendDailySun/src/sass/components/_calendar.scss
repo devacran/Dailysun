@@ -2,6 +2,7 @@
   border-radius: 10px;
   color: white;
   background-color: #4a899ca6;
+  margin-bottom: 1em;
   &__day-names {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -10,10 +11,20 @@
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
+    div {
+      @include sm {
+        max-width: 35px;
+        overflow: hidden;
+        text-overflow: clip;
+      }
+    }
   }
   &__month-name {
     font-size: 35px;
     text-align: center;
+    @include sm {
+      font-size: 18px;
+    }
   }
   &__header {
     height: 90px;
@@ -48,16 +59,20 @@
     height: 60%;
   }
   &__img {
-    width: 40px;
-    height: 40px;
     i {
       //cambiar por imagen
       color: yellow;
       font-size: 45px;
+      @include sm {
+        font-size: 18px;
+      }
     }
   }
   &__day {
     text-align: center;
     font-size: 28px;
+    @include sm {
+      font-size: 18px;
+    }
   }
 }
