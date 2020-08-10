@@ -20,9 +20,17 @@ function searchBoxScript(appState) {
       selectedOption.textContent = previusOption;
     }
   };
+
+  window.onclick = evn => {
+    if (!searchBox.contains(evn.target)) {
+      console.log("hola");
+      closeDropdown(dropDownSuggestionList);
+      closeDropdown(dropDownList);
+    }
+  };
   searchBoxInput.onclick = evn => {
     const placeHolder = searchBoxInput.querySelector("input");
-    toggleDropdown(dropDownSuggestionList);
+    todayData && toggleDropdown(dropDownSuggestionList);
     if (evn.target !== searchBoxInput) {
       const selectedOption = evn.target;
       const previusOption = placeHolder.placeholder;

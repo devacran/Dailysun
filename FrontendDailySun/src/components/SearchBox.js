@@ -1,5 +1,6 @@
 import AppComponent from "../utils/createComponent.js";
 import searchBoxScript from "../js/searchBox.js";
+import searchIcon from "../assets/images/busqueda.png";
 const SearchBox = appState => {
   const searchBox = new AppComponent({ parent: "navbar__searchBox" });
   const renderSearchBox = `
@@ -21,6 +22,7 @@ const SearchBox = appState => {
               >
               </div>
           </div>
+          <div class="search-box__icon"><img src=${searchIcon}/></div>
       </form>
   `;
   searchBox.renderComponent(renderSearchBox);

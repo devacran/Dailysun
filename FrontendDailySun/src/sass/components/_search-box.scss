@@ -1,11 +1,28 @@
 .search-box {
+  position: relative;
   display: flex;
-  border-radius: 20px;
-  height: 40px;
+  border-radius: 40px;
+  height: 50px;
   width: 300px;
   background-color: #4a4a4a40;
   color: #2d2d2d;
   align-items: center;
+}
+.search-box__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 2%;
+  background-color: #8cafc2;
+  height: 80%;
+  width: 42px;
+  border-radius: 50%;
+  border: 3px solid white;
+  img {
+    width: 80%;
+    height: 80%;
+  }
 }
 .search-box__dropdown {
   display: flex;
@@ -44,4 +61,5 @@
   height: 40px;
   border-radius: 5px;
   line-height: 30px;
+  z-index: 2;
 }
