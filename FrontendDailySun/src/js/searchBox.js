@@ -67,7 +67,7 @@ function searchBoxScript(appState) {
 
   searchBox.onsubmit = evn => {
     evn.preventDefault();
-    appState.state = { todayData: todayData };
+    appState.state = { ...appState.state, todayData };
   };
   const toggleDropdown = list => {
     if (list.style.display === "block") {
