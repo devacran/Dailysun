@@ -1,19 +1,23 @@
-// const getGeolocation = () => {
+// const getGeolocation = async () => {
 //   if (!navigator.geolocation) {
 //     return new Error("Geolocation is not suportted");
 //   }
-//   function success(position) {
+//   try {
+//     const location = await new Promise((resolve, reject) => {
+//       navigator.geolocation.getCurrentPosition(resolve, reject);
+//     });
+//     console.log("LOcation is", location);
 //     return {
-//       lat: position.coords.latitude,
-//       lon: position.coords.longitude
+//       lat: location.coords.latitude,
+//       lon: location.coords.longitude
+//     };
+//   } catch (error) {
+//     console.log("Geolocalizacion error", error);
+//     return {
+//       lat: 19.42847,
+//       lon: -99.12766
 //     };
 //   }
-//
-//   navigator.geolocation.getCurrentPosition(success, err => console.error(err));
-//   return {
-//     lat: 23.7414453,
-//     lon: -103.98099409999999
-//   };
 // };
 // export default getGeolocation;
 const getGeolocation = async () => {
@@ -24,17 +28,13 @@ const getGeolocation = async () => {
     const location = await new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject);
     });
-    console.log("LOcation is", location);
     return {
       lat: location.coords.latitude,
       lon: location.coords.longitude
     };
   } catch (error) {
     console.log("Geolocalizacion error", error);
-    return {
-      lat: 19.42847,
-      lon: -99.12766
-    };
+    throw new Error("Geolocation was not enabled");
   }
 };
 export default getGeolocation;

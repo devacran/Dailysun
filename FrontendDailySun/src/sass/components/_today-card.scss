@@ -109,6 +109,11 @@
     bottom: -70%;
   }
   &__content {
+    margin-top: 30px;
+    padding: 0 3em;
+  }
+  &__content--base {
+    margin-top: 0;
     padding: 0 3em;
   }
   &__day-info {

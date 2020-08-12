@@ -46,7 +46,10 @@ module.exports = {
         exclude: [/node_modules/, /public/, /dist/],
         use: [
           {
-            loader: "file-loader"
+            loader: "url-loader",
+            options: {
+              limit: 8192
+            }
           }
         ]
       }

@@ -11,6 +11,7 @@ const Home = async appState => {
   createPage($home);
   await HeroSkeleton(); //Si aun no hay estado muestra el Loading....
   if (appState.state) {
+    console.log(appState.state.geoLocation);
     const data = appState.state.data;
     const today = appState.state.todayData;
     const units = appState.state.units;

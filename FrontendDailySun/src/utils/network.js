@@ -50,7 +50,6 @@ export const getData = async params => {
   }
   try {
     locationParams = location;
-    console.log({ ...locationParams, units });
     const data = await axios(`${API_URL}/weather`, {
       params: { ...locationParams, units }
     });

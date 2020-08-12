@@ -19,12 +19,18 @@
     align-items: center;
     padding: 0 1em;
     text-transform: capitalize;
+    @include sm {
+      padding: 0;
+    }
   }
   &__city-title {
     font-family: $FontTitleSpecial;
     font-size: 28px;
     padding: 0 1em;
     margin: auto;
+    @include sm {
+      padding: 0;
+    }
   }
   &__time {
     font-size: 18px;
@@ -48,6 +54,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     @include sm {
+      width: 50%;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:
         "status status icon"

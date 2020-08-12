@@ -5,6 +5,7 @@ function script(props) {
   var gradientFill = ctx.createLinearGradient(0, 0, 0, 150);
   gradientFill.addColorStop(0, "rgba(213, 234, 242, 0.6)");
   gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.6)");
+
   let labels = [];
   let datasets = [];
   let tempMax = 0;
@@ -23,7 +24,17 @@ function script(props) {
         data: datasets,
         // backgroundColor: "#D6EBF4",
         backgroundColor: gradientFill,
-        pointRadius: 10
+        pointRadius: 10,
+
+        borderColor: "#7fb6f4",
+        pointBorderColor: "#7fb6f4",
+        pointBackgroundColor: "#7fb6f4",
+        pointHoverBackgroundColor: "#7fb6f4",
+        pointHoverBorderColor: "#7fb6f4",
+        pointBorderWidth: 7,
+        pointHoverRadius: 7,
+        pointHoverBorderWidth: 1,
+        borderWidth: 4
       }
     ]
   };

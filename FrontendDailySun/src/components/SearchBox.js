@@ -1,6 +1,7 @@
 import AppComponent from "../utils/createComponent.js";
 import searchBoxScript from "../js/searchBox.js";
-import searchIcon from "../assets/images/busqueda.png";
+import searchIcon from "../assets/images/buscar.png";
+
 const SearchBox = appState => {
   const searchBox = new AppComponent({ parent: "navbar__searchBox" });
   const renderSearchBox = `
@@ -22,7 +23,7 @@ const SearchBox = appState => {
               >
               </div>
           </div>
-          <div class="search-box__icon"><a id='searchSubmit'><img src=${searchIcon}/></a></div>
+          <div class="search-box__icon"><img src=${searchIcon} alt="boton de activar, desactivar ubicación"/></div>
       </form>
   `;
   searchBox.renderComponent(renderSearchBox);

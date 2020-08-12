@@ -1,9 +1,8 @@
-@import "./globals.scss";
-
 @import "./base/switch";
 /* import de lib*/
 @import "./lib/variables";
 @import "./lib/settings";
+@import "./globals.scss";
 /*import de components*/
 @import "./components/header";
 @import "./components/modal";

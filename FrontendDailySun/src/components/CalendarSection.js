@@ -46,7 +46,7 @@ const CalendarSection = () => {
           <div class="day-card__imgContainer">
             <div class="day-card__img"><img></div>
           </div>
-          <div class="day-card__day">${index}</div>
+          <div class="day-card__day">${index + 1}</div>
         </div>
         `);
     });
@@ -71,7 +71,7 @@ const CalendarSection = () => {
           <div class="day-card__imgContainer">
             <div class="day-card__img"><i class="wi wi-day-sunny"></i></div>
           </div>
-          <div class="day-card__day">${index}</div>
+          <div class="day-card__day">${index + 1}</div>
         </div>
         `);
     });

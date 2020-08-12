@@ -19,10 +19,38 @@ class State {
 }
 const appState = new State();
 
+// async function initialState(state) {
+//   let data, todayData, location;
+//   try {
+//     location = await getGeolocation();
+//     data = await getData({
+//       location
+//     });
+//     todayData = await getTodayData({ location });
+//   } catch (error) {
+//     console.log(error);
+//   }
+//   state.state = {
+//     data,
+//     todayData,
+//     location,
+//     units: "metric"
+//   };
+// }
 async function initialState(state) {
-  let data, todayData, location;
+  let data, todayData, location, geoLocation;
   try {
     location = await getGeolocation();
+    geoLocation = true;
+  } catch (error) {
+    console.log(error);
+    geoLocation = false;
+    location = {
+      lat: 19.42847,
+      lon: -99.12766
+    };
+  }
+  try {
     data = await getData({
       location
     });
@@ -34,6 +62,7 @@ async function initialState(state) {
     data,
     todayData,
     location,
+    geoLocation,
     units: "metric"
   };
 }

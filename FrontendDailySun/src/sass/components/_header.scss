@@ -13,6 +13,7 @@
   min-height: 85px;
   @include sm {
     grid-template-columns: 1fr 3fr;
+    padding: 10px;
   }
 }
 .navbar__logo {
@@ -74,12 +75,15 @@
   &__container {
     display: flex;
     justify-content: space-around;
+    width: 100px;
+    height: 34px;
     @include sm {
       display: none;
     }
   }
 }
 .navbar_switch img {
-  width: 30px;
+  width: 34px;
+  height: 34px;
   cursor: pointer;
 }

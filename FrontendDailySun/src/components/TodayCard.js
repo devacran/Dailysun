@@ -18,7 +18,7 @@ const TodayCard = ({ daily, today, units }) => {
         ${Math.floor(today.main.temp)}${units === "metric" ? "C°" : "F°"}
         </div>
       </div>
-      <div class="today-card__content">
+      <div class="today-card__content today-card__content--base">
         <div class="today-card__day-icon--base">
           <img
             src="${API_URL}/static/icons/${today.weather[0].icon}@2x.png"
