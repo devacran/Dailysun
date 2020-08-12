@@ -1,50 +1,50 @@
 import AppComponent from "../utils/createComponent.js";
 import { utcToLocalTimeDay } from "../utils/getDates";
-const TodayCard = ({ daily, today }) => {
+import config from "../../config.js";
+const API_URL = config.API_URL;
+const TodayCard = ({ daily, today, units }) => {
   const todayCard = new AppComponent({
     parent: "today-card",
     className: "today-card__container"
   });
-  console.log("est today", daily);
   const days = daily.slice(1, 4); //Aqui va la info de la api
   let componentStr = [];
   componentStr.push(`
     <div class="today-card__card today-card__card">
-        <div class="today-card__clickable"></div>
-        <div class="today-card__header--base">
-          <a class="today-card__day-title--base">Today</a>
-          <div class="today-card__day-temp">${Math.floor(
-            today.main.temp
-          )}°C</div>
+      <div class="today-card__clickable"></div>
+      <div class="today-card__header--base">
+        <a class="today-card__day-title--base">Hoy</a>
+        <div class="today-card__day-temp">
+        ${Math.floor(today.main.temp)}${units === "metric" ? "C°" : "F°"}
         </div>
-        <div class="today-card__content">
-          <div class="today-card__day-icon--base">
-            <img src='http://openweathermap.org/img/wn/${
-              today.weather[0].icon
-            }@2x.png'/>
-          </div>
-          <div class='today-card__day-status'>${
-            today.weather[0].description
-          }</div>
-          <div class='today-card__day-info'>
-            <div>
-              Temp
-              <span>
-              <i class="wi wi-thermometer"></i>
-                ${Math.floor(today.main.temp_min)}/${Math.floor(
+      </div>
+      <div class="today-card__content">
+        <div class="today-card__day-icon--base">
+          <img
+            src="${API_URL}/static/icons/${today.weather[0].icon}@2x.png"
+          />
+        </div>
+        <div class="today-card__day-status">${
+          today.weather[0].description
+        }</div>
+        <div class="today-card__day-info">
+          <i class="wi wi-thermometer"></i>
+          <span>Temp</span>
+          <span>
+            ${Math.floor(today.main.temp_min)}/${Math.floor(
     today.main.temp_max
-  )}°C
-              </span>
-            </div>
-            <div> Wind <span><i class="wi wi-day-sunny"></i>  ${Math.floor(
-              today.wind.speed
-            )} Km/h</span> </div>
-            <div> Humedad <span><i class="wi wi-humidity"></i>${Math.floor(
-              today.main.humidity
-            )} %</span> </div>
-          </div>
+  )}${units === "metric" ? "C°" : "F°"}
+          </span>
+          <i class="wi wi-strong-wind"></i>
+          <span>Wind</span>
+          <span>${Math.floor(today.wind.speed)} Km/h</span>
+          <i class="wi wi-humidity"></i>
+          <span>Humedad</span>
+          <span> ${Math.floor(today.main.humidity)} %</span>
         </div>
+      </div>
     </div>
+
     `);
   days.forEach((day, index) => {
     componentStr.push(`
@@ -52,32 +52,34 @@ const TodayCard = ({ daily, today }) => {
           <div class="today-card__clickable"></div>
           <div class="today-card__header today-card__header--${index}">
             <a class="today-card__day-title">${utcToLocalTimeDay(day.dt)}</a>
-            <div class="today-card__day-temp">${Math.floor(
-              day.temp.day
-            )}°C</div>
+            <div class="today-card__day-temp">${Math.floor(day.temp.day)}${
+      units === "metric" ? "C°" : "F°"
+    }</div>
             <div class="today-card__day-icon">
-              <img src='http://openweathermap.org/img/wn/${
-                day.weather[0].icon
-              }@2x.png'/>
+              <img src='${API_URL}/static/icons/${day.weather[0].icon}@2x.png'/>
             </div>
           </div>
           <div class="today-card__content">
           <div class="today-card__day-icon--base">
-            <img src='http://openweathermap.org/img/wn/${
-              day.weather[0].icon
-            }@2x.png'/>
+            <img src='${API_URL}/static/icons/${day.weather[0].icon}@2x.png'/>
           </div>
             <div class='today-card__day-status'>${
               day.weather[0].description
             }</div>
-            <div class='today-card__day-info'>
-              <div> Temp <span>${Math.floor(day.temp.min)}/${Math.floor(
-      day.temp.max
-    )} °C<i class="wi wi-thermometer"></i></span> </div>
-              <div> Wind <span>45% <i class="wi wi-day-sunny"></i></span> </div>
-              <div> Humedad <span>${
-                day.humidity
-              }<i class="wi wi-humidity"></i></span> </div>
+            <div class="today-card__day-info">
+              <i class="wi wi-thermometer"></i>
+              <span>Temp</span>
+              <span>
+                ${Math.floor(day.temp.min)}/${Math.floor(day.temp.max)}${
+      units === "metric" ? "C°" : "F°"
+    }
+              </span>
+              <i class="wi wi-strong-wind"></i>
+              <span>Wind</span>
+              <span> 20 Km/h</span>
+              <i class="wi wi-humidity"></i>
+              <span>Humedad</span>
+              <span> ${Math.floor(day.humidity)} %</span>
             </div>
           </div>
       </div>

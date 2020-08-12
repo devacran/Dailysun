@@ -24,15 +24,16 @@ const getGeolocation = async () => {
     const location = await new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject);
     });
+    console.log("LOcation is", location);
     return {
-      lat: location.position.coords.latitude,
-      lon: location.position.coords.longitude
+      lat: location.coords.latitude,
+      lon: location.coords.longitude
     };
   } catch (error) {
     console.log("Geolocalizacion error", error);
     return {
-      lat: 23.7414453,
-      lon: -103.98099409999999
+      lat: 19.42847,
+      lon: -99.12766
     };
   }
 };

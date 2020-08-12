@@ -8,11 +8,12 @@ function weather(app) {
     app.use('/weather', router)
 
     router.get('/', async (req, res, next) => {
-        const { lat, lon, q } = req.query
+        const { lat, lon, q, units } = req.query
+        console.log(req.query)
         let data
         const query = {
             lat,
-            units: 'metric',
+            units: units || 'metric',
             lon,
             q,
             appid: apiKey,
@@ -33,11 +34,11 @@ function weather(app) {
         }
     })
     router.get('/today', async (req, res, next) => {
-        const { lat, lon, q } = req.query
+        const { lat, lon, q, units } = req.query
         let data
         const query = {
             lat,
-            units: 'metric',
+            units: units || 'metric',
             lon,
             q,
             appid: apiKey,

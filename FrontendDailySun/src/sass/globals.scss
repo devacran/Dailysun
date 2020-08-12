@@ -18,6 +18,16 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+.button {
+  border-radius: 10px;
+  background-color: #4a4a4a40;
+  padding: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  &:hover {
+    border: 2px solid white;
+  }
+}
 @keyframes load {
   from {
     left: -150px;

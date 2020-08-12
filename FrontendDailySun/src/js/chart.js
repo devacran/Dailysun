@@ -7,10 +7,15 @@ function script(props) {
   gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.6)");
   let labels = [];
   let datasets = [];
+  let tempMax = 0;
+  let tempMin = 1000;
   props.slice(0, 14).forEach((hour, i) => {
+    tempMax = hour.temp >= tempMax ? hour.temp : tempMax;
+    tempMin = hour.temp <= tempMin ? hour.temp : tempMin;
     datasets.push(Math.floor(hour.temp));
     labels.push(utcToLocalTime(hour.dt));
   });
+  console.log(tempMax, tempMin);
   const data = {
     labels: labels,
     datasets: [
@@ -52,8 +57,8 @@ function script(props) {
             drawBorder: false
           },
           ticks: {
-            min: 10, //Valor minimo de temp
-            max: 35, //Valor maximo de temp
+            min: tempMin - 5, //Valor minimo de temp
+            max: tempMax + 5, //Valor maximo de temp
             stepSize: 10
           }
         }

@@ -9,13 +9,16 @@ import { getData, getTodayData } from "../utils/network";
 
 const Home = async appState => {
   createPage($home);
-  await HeroSkeleton();
-  const data = appState.state.data ? appState.state.data : await getData();
-  const today = appState.state.todayData
-    ? appState.state.todayData
-    : await getTodayData();
-  data || today ? await Hero({ today, data }) : await HeroSkeleton("error");
-  data ? await HourSection({ data }) : await HourSectionSkeleton();
+  await HeroSkeleton(); //Si aun no hay estado muestra el Loading....
+  if (appState.state) {
+    const data = appState.state.data;
+    const today = appState.state.todayData;
+    const units = appState.state.units;
+    data || today
+      ? await Hero({ today, data, units })
+      : await HeroSkeleton("error");
+    data ? await HourSection({ data }) : await HourSectionSkeleton("error");
+  }
 };
 
 export default Home;

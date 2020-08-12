@@ -2,15 +2,17 @@ import config from "../../config.js";
 import getGeolocation from "./getGeolocation";
 import axios from "axios";
 const API_URL = config.API_URL;
-console.log("api url", API_URL);
-export const getTodayData = async city => {
+export const getTodayData = async params => {
   let locationParams;
   let cityParams;
+  const city = params ? params.city : null;
+  const units = params ? params.units : null;
+  const location = params ? params.location : null;
   if (city) {
     try {
       cityParams = { q: city };
       const data = await axios(`${API_URL}/weather/today`, {
-        params: cityParams
+        params: { ...cityParams, units: units }
       });
       return data;
     } catch (err) {
@@ -18,9 +20,9 @@ export const getTodayData = async city => {
     }
   } else {
     try {
-      locationParams = await getGeolocation();
+      locationParams = location;
       const data = await axios(`${API_URL}/weather/today`, {
-        params: locationParams
+        params: { ...locationParams, units }
       });
       return data.data.body;
     } catch (err) {
@@ -29,14 +31,17 @@ export const getTodayData = async city => {
   }
 };
 
-export const getData = async city => {
+export const getData = async params => {
   let locationParams;
   let cityParams;
+  const city = params ? params.city : null;
+  const units = params ? params.units : null;
+  const location = params ? params.location : null;
   if (city) {
     try {
       cityParams = { q: city };
       const data = await axios(`${API_URL}/weather/today`, {
-        params: cityParams
+        params: { ...cityParams, units }
       });
       return data;
     } catch (err) {
@@ -44,8 +49,11 @@ export const getData = async city => {
     }
   }
   try {
-    locationParams = await getGeolocation();
-    const data = await axios(`${API_URL}/weather`, { params: locationParams });
+    locationParams = location;
+    console.log({ ...locationParams, units });
+    const data = await axios(`${API_URL}/weather`, {
+      params: { ...locationParams, units }
+    });
     return data.data.body;
   } catch (err) {
     console.log(err);

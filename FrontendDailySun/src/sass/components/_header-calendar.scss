@@ -27,7 +27,7 @@
     margin: auto;
   }
   &__time {
-    font-size: 22px;
+    font-size: 18px;
     margin-left: 1em;
     @include sm {
       display: flex;
@@ -63,7 +63,7 @@
     }
   }
   &__weather-icon {
-    margin: 0 auto;
+    margin: 3px auto;
     width: 20px;
     height: 20px;
     @include sm {

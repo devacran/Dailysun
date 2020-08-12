@@ -5,6 +5,7 @@ const error = require('./utils/error')
 const cors = require('cors')
 const app = express()
 app.use(cors())
+app.use('/static', express.static('public'))
 weather(app)
 app.use(error)
 app.listen(config.api.port, () => {

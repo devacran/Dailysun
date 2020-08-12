@@ -23,7 +23,6 @@ function searchBoxScript(appState) {
 
   window.onclick = evn => {
     if (!searchBox.contains(evn.target)) {
-      console.log("hola");
       closeDropdown(dropDownSuggestionList);
       closeDropdown(dropDownList);
     }
@@ -48,11 +47,10 @@ function searchBoxScript(appState) {
     let results = []; //estos se llenan con la api
     //const data = await getData('placeholder.value')
     try {
-      const res = await getTodayData(placeHolder.value);
+      console.log("header", appState);
+      const res = await getTodayData({ city: placeHolder.value });
       todayData = res && res.data.body;
       todayData && results.push(todayData);
-      console.log("result list", results);
-      console.log("today data", todayData);
     } catch (err) {
       console.log(err);
     }
@@ -70,8 +68,6 @@ function searchBoxScript(appState) {
   searchBox.onsubmit = evn => {
     evn.preventDefault();
     appState.state = { todayData: todayData };
-    // console.log(appState.state.data);
-    //appState.state = {data: y los datos, today: y los datos }
   };
   const toggleDropdown = list => {
     if (list.style.display === "block") {

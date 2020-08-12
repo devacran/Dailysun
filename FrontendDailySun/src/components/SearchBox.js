@@ -6,12 +6,12 @@ const SearchBox = appState => {
   const renderSearchBox = `
   <form class="search-box" id="search-box">
           <div id="search-box__dropdown" class="search-box__dropdown">
-              <a id="search-box__dropdown-place-holder">C.P</a>
+              <a id="search-box__dropdown-place-holder">Ciudad</a>
               <div
                   id="search-box__dropdown-list"
                   class="search-box__dropdown-list"
               >
-                  <a>Ciudad</a>
+                  <a>ZIP</a>
               </div>
           </div>
           <div class="search-box__input" id="search-box__input">
@@ -22,7 +22,7 @@ const SearchBox = appState => {
               >
               </div>
           </div>
-          <div class="search-box__icon"><img src=${searchIcon}/></div>
+          <div class="search-box__icon"><a id='searchSubmit'><img src=${searchIcon}/></a></div>
       </form>
   `;
   searchBox.renderComponent(renderSearchBox);

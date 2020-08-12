@@ -12,7 +12,6 @@ class Component {
   }
   renderComponent($element) {
     this.parent.innerHTML = "";
-    console.log(typeof $element);
     if (typeof $element === "string") {
       this.component.innerHTML = $element;
     }

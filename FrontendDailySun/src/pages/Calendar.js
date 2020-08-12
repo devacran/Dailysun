@@ -5,11 +5,11 @@ import createPage from "../utils/createPage";
 import { getTodayData } from "../utils/network";
 
 const Calendar = async appState => {
-  const data = appState.state.todayData
-    ? appState.state.todayData
-    : await getTodayData();
-  createPage($calendar);
-  HeaderCalendar(data);
-  CalendarSection();
+  if (appState.state) {
+    const data = appState.state.todayData;
+    createPage($calendar);
+    data ? HeaderCalendar(data) : null; //Aqui hacen falta los skeletons
+    CalendarSection();
+  }
 };
 export default Calendar;

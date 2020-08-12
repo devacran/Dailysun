@@ -21,6 +21,7 @@
   width: 42px;
   border-radius: 50%;
   border: 3px solid white;
+  cursor: pointer;
   img {
     width: 80%;
     height: 80%;
@@ -30,13 +31,15 @@
   display: flex;
   position: relative;
   align-items: center;
-  width: 80px;
-  padding: 5px;
+  width: 90px;
+  padding: 0 1em;
   border-right: 1px solid #b7b7b7;
   background-color: white;
   height: 70%;
   border-radius: 20px 0px 0px 20px;
   margin-left: 2%;
+  font-size: 13.33px;
+  cursor: pointer;
 }
 .search-box__input {
   position: relative;

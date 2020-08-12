@@ -69,11 +69,14 @@
   height: 30px;
   margin-left: 5px;
 }
+
 .navbar_switch {
-  display: flex;
-  justify-content: space-around;
-  @include sm {
-    display: none;
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    @include sm {
+      display: none;
+    }
   }
 }
 .navbar_switch img {
