@@ -29,14 +29,14 @@ const TodayCard = ({ daily, today, units }) => {
         }</div>
         <div class="today-card__day-info">
           <i class="wi wi-thermometer"></i>
-          <span>Temp</span>
+          <span>Temperatura</span>
           <span>
             ${Math.floor(today.main.temp_min)}/${Math.floor(
     today.main.temp_max
   )}${units === "metric" ? "C°" : "F°"}
           </span>
           <i class="wi wi-strong-wind"></i>
-          <span>Wind</span>
+          <span>Viento</span>
           <span>${Math.floor(today.wind.speed)} Km/h</span>
           <i class="wi wi-humidity"></i>
           <span>Humedad</span>

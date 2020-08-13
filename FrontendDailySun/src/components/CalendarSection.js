@@ -1,4 +1,5 @@
 import AppComponent from "../utils/createComponent";
+import CalendarModal from "./CalendarModal";
 import { getMonthData } from "../utils/network";
 import {
   getFirstDayOfTheMonth,
@@ -14,8 +15,10 @@ const CalendarSection = () => {
   const calendarGrid = document.createElement("div");
   calendarGrid.setAttribute("class", "calendar-section__grid");
   const firstDayOfTheMonth = getFirstDayOfTheMonth();
-  //debe obtenerse con getMonthData
-  const todayDate = new Date();
+
+  const date = new Date().toLocaleString("es-MX", {
+    month: "long"
+  });
   const dayCards = [];
   const componentStr = [];
   let calendarGridStr = [];
@@ -67,7 +70,7 @@ const CalendarSection = () => {
     });
     days.forEach((day, index) => {
       dayCards.push(`
-        <div class="day-card">
+        <div class="day-card" data-day-id=${day.id}>
           <div class="day-card__imgContainer">
             <div class="day-card__img"><i class="wi wi-day-sunny"></i></div>
           </div>
@@ -82,7 +85,29 @@ const CalendarSection = () => {
     </div>
   `;
   componentStr.push(calendarGridStr);
-
   calendarSection.renderComponent(componentStr);
+  Modal({ data: date });
 };
 export default CalendarSection;
+
+async function toggleModal({ data, evn }) {
+  const id = evn.currentTarget.dataset.dayId;
+  await CalendarModal({ data, id });
+  const $modal = document.getElementById("calendarModal");
+  if ($modal.classList.contains("hide")) {
+    $modal.classList.remove("hide");
+    $modal.classList.add("show");
+  } else {
+    $modal.classList.remove("show");
+    $modal.classList.add("hide");
+  }
+}
+function closeModal() {}
+function Modal({ data }) {
+  const calendarDays = document.getElementsByClassName("day-card");
+  for (let i = 0; i < calendarDays.length; i++) {
+    calendarDays[i].addEventListener("click", evn =>
+      toggleModal({ data, evn })
+    );
+  }
+}
