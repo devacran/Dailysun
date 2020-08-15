@@ -3,7 +3,7 @@ import SearchBox from "./SearchBox";
 import UnitsSwitch from "./UnitsSwitch";
 import toggleUnits from "../js/toggleUnits";
 async function Header(appState) {
-  document.getElementById("header").innerHTML = $header;
+  document.getElementById("appheader").innerHTML = $header;
   await UnitsSwitch(appState);
   await SearchBox(appState);
   await toggleUnits(appState);

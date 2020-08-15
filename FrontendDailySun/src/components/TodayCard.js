@@ -22,6 +22,7 @@ const TodayCard = ({ daily, today, units }) => {
         <div class="today-card__day-icon--base">
           <img
             src="${API_URL}/static/icons/${today.weather[0].icon}@2x.png"
+            alt="${today.weather[0].description}"
           />
         </div>
         <div class="today-card__day-status">${
@@ -56,7 +57,10 @@ const TodayCard = ({ daily, today, units }) => {
       units === "metric" ? "C°" : "F°"
     }</div>
             <div class="today-card__day-icon">
-              <img src='${API_URL}/static/icons/${day.weather[0].icon}@2x.png'/>
+              <img
+              src='${API_URL}/static/icons/${day.weather[0].icon}@2x.png'
+              alt='${day.weather[0].description}'
+              />
             </div>
           </div>
           <div class="today-card__content">

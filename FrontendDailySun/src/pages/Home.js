@@ -9,7 +9,7 @@ import { getData, getTodayData } from "../utils/network";
 
 const Home = async appState => {
   createPage($home);
-  await HeroSkeleton(); //Si aun no hay estado muestra el Loading....
+  // await HeroSkeleton(); //Si aun no hay estado muestra el Loading....
   if (appState.state) {
     console.log(appState.state.geoLocation);
     const data = appState.state.data;

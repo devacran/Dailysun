@@ -1,6 +1,6 @@
 import router from "./router/index.js";
 import { getData, getTodayData } from "./utils/network";
-import getGeolocation from "./utils/getGeolocation";
+import { getGeolocation } from "./utils/getGeolocation";
 import "./assets/icons/scss/weather-icons.scss";
 import "./sass/styles.scss";
 
@@ -19,31 +19,12 @@ class State {
 }
 const appState = new State();
 
-// async function initialState(state) {
-//   let data, todayData, location;
-//   try {
-//     location = await getGeolocation();
-//     data = await getData({
-//       location
-//     });
-//     todayData = await getTodayData({ location });
-//   } catch (error) {
-//     console.log(error);
-//   }
-//   state.state = {
-//     data,
-//     todayData,
-//     location,
-//     units: "metric"
-//   };
-// }
 async function initialState(state) {
   let data, todayData, location, geoLocation;
   try {
     location = await getGeolocation();
     geoLocation = true;
   } catch (error) {
-    console.log(error);
     geoLocation = false;
     location = {
       lat: 19.42847,
@@ -62,7 +43,7 @@ async function initialState(state) {
     data,
     todayData,
     location,
-    geoLocation,
+    geoLocation: false,
     units: "metric"
   };
 }

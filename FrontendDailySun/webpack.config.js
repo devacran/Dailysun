@@ -1,5 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+
+const isProd = !process.env.NODE_ENV === "production";
+console.log(isProd);
 module.exports = {
   entry: path.resolve(__dirname, "src", "index.js"),
   output: {
@@ -55,10 +61,27 @@ module.exports = {
       }
     ]
   },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 200000,
+    maxAssetSize: 200000
+  },
+  optimization: {
+    minimizer: [new UglifyJsPlugin(), new OptimizeCSSAssetsPlugin()],
+
+    splitChunks: {
+      chunks: "all",
+      minSize: 0,
+      name: "commons"
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, "dist", "index.html"),
       template: path.resolve(__dirname, "src", "index.html")
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: isProd ? "static" : "disabled"
     })
   ]
 };

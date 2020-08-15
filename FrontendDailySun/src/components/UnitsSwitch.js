@@ -18,8 +18,8 @@ const UnitsSwitch = appState => {
   </label>
   ${
     isGeolocation
-      ? `<img src=${location} alt="boton de activar, desactivar ubicación"/>`
-      : `<img src=${locationOff} alt="boton de activar, desactivar ubicación"/>`
+      ? `<a id='geo-btn'><img src=${location} alt="boton de activar, desactivar ubicación"/></a>`
+      : `<a id='geo-btn'><img src=${locationOff} alt="boton de activar, desactivar ubicación"/></a>`
   }
   `;
   unitsSwitch.renderComponent(componentStr);

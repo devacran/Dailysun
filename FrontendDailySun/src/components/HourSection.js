@@ -18,7 +18,10 @@ const HourSection = async ({ data }) => {
       <div class='hour-section__card'>
         <div>${hour.humidity}%</div>
         <div class='hour-section__icon'>
-          <img src='${API_URL}/static/icons/${hour.weather[0].icon}@2x.png'/>
+          <img
+          src='${API_URL}/static/icons/${hour.weather[0].icon}@2x.png'
+          alt='${hour.weather[0].description}'
+          />
           </div>
         <div>${time}</div>
         </div>

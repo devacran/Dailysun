@@ -1,4 +1,5 @@
-const getGeolocation = async () => {
+import axios from "axios";
+export const getGeolocation = async () => {
   if (!navigator.geolocation) {
     return new Error("Geolocation is not suportted");
   }
@@ -20,4 +21,23 @@ const getGeolocation = async () => {
     throw new Error("Geolocation was not enabled");
   }
 };
-export default getGeolocation;
+
+export const getIPLocation = async () => {
+  try {
+    const ipInfo = await axios("https://api.ipify.org/?format=json");
+    const ip = ipInfo.data.ip;
+    const url = `http://api.ipstack.com/${ip}`;
+    const location = await axios(url, {
+      params: {
+        access_key: "048b501bf6aa1d53ffa674505cdca711"
+      }
+    });
+    return {
+      lat: location.data.latitude,
+      lon: location.data.longitude
+    };
+  } catch (error) {
+    console.log("Location by Ip error", error);
+    throw new Error("Couldn't get IP location");
+  }
+};
