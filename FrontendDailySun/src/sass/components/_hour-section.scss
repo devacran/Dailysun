@@ -1,0 +1,44 @@
+.hour-section {
+  margin-bottom: 40px;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #46464661;
+  overflow: auto;
+  box-shadow: 2px 4px 6px #404040d9;
+  &__info {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 1em 0;
+  }
+  &__icon {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__container {
+    @include sm {
+      width: 1200px;
+    }
+    @include md {
+      width: 1200px;
+    }
+    @include lg {
+      width: 1200px;
+    }
+  }
+}
+.chart {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  &__container {
+    transform: translateX(-1em);
+    width: calc(100% + 2em);
+  }
+}

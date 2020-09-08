@@ -1,0 +1,64 @@
+.city-card {
+  width: 100%;
+  height: 100%;
+  &__container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  &__skeleton {
+    position: relative;
+    overflow: hidden;
+    background-color: #0000008f;
+    &::before {
+      @include loader();
+    }
+  }
+  &__skeleton--error {
+    position: relative;
+    overflow: hidden;
+    background-color: #0000008f;
+  }
+  &__info {
+    text-align: right;
+    width: 100%;
+    padding: 20px;
+  }
+  &__weather-status {
+    color: black;
+    font-weight: 500;
+    font-size: 26px;
+  }
+  &__city-name {
+    font-family: $FontTitleSpecial;
+    font-size: 60px;
+    color: white;
+  }
+  &__temp {
+    color: white;
+    font-weight: 500;
+    font-size: 42px;
+  }
+  &__date {
+    color: white;
+    font-size: 18px;
+    text-transform: capitalize;
+  }
+
+  &__error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0000008f;
+    width: 100%;
+    height: 100%;
+    font-family: $FontTitleSpecial;
+    font-size: 60px;
+    color: white;
+    @include sm {
+      text-align: center;
+      font-size: 35px;
+    }
+  }
+}

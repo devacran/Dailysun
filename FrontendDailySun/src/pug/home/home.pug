@@ -1,0 +1,13 @@
+.hero
+  include ../hero/hero
+.section-nav 
+  h1.section-title Por Horas
+  .calendar-button.button
+    a(href='#/calendar') Ver Mensual
+.hour-section
+  .hour-section__container
+    .chart
+      .chart__container
+        canvas(id="myChart" aria-label='El clima de hoy por cada hora')
+          p EL clima de hoy por cada hora
+    .hour-section__hourCards#hour-section

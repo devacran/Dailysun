@@ -1,0 +1,17 @@
+@import "./base/switch";
+/* import de lib*/
+@import "./lib/variables";
+@import "./lib/settings";
+@import "./globals.scss";
+/*import de components*/
+@import "./components/header";
+@import "./components/modal";
+@import "./components/calendar";
+@import "./components/header-calendar";
+@import "./components/hour-section";
+@import "./components/footer";
+@import "./components/hero";
+@import "./components/today-card";
+@import "./components/city-card";
+@import "./components/search-box";
+@import "./components/calendar-modal";

@@ -1,0 +1,37 @@
+.hero {
+  filter: drop-shadow(2px 4px 6px #404040d9);
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 470px;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    // background-image: url("../assets/images/night_snow.png");
+    background-position-y: -270px;
+    @include sm {
+      grid-template-columns: 1fr;
+      height: auto;
+      grid-template-areas:
+        "city"
+        "today";
+    }
+  }
+  &__right {
+    border-radius: 0px 0px 0px 0px;
+    background: linear-gradient(#084b72c9, #a1bcd0);
+    @include sm {
+      height: 470px;
+      grid-area: today;
+      border-radius: 0;
+    }
+  }
+  &__left {
+    background-color: #0000006e;
+    border-radius: 0px 10px 10px 0px;
+    @include sm {
+      grid-area: city;
+      border-radius: 10px 10px 0px 0px;
+    }
+  }
+}
