@@ -16,16 +16,13 @@ function script(props) {
     datasets.push(Math.floor(hour.temp));
     labels.push(utcToLocalTime(hour.dt));
   });
-  console.log(tempMax, tempMin);
   const data = {
     labels: labels,
     datasets: [
       {
         data: datasets,
-        // backgroundColor: "#D6EBF4",
         backgroundColor: gradientFill,
         pointRadius: 10,
-
         borderColor: "#7fb6f4",
         pointBorderColor: "#7fb6f4",
         pointBackgroundColor: "#7fb6f4",

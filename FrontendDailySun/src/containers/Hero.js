@@ -15,5 +15,4 @@ const setBackground = data => {
   const backgroundID = data.weather[0].icon;
   const hero = document.getElementById("hero");
   hero.style.backgroundImage = `url(${API_URL}/static/images/${backgroundID}.png`;
-  console.log("today is", status);
 };

@@ -18,7 +18,6 @@ const toggleUnits = appState => {
       } catch (error) {
         console.log(error);
       }
-      console.log("despues", appState);
     };
   }
 };

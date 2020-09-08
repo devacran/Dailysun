@@ -17,7 +17,11 @@ const HourSection = async ({ data }) => {
     renderHours.push(`
       <div class='hour-section__card'>
         <div>${hour.humidity}%</div>
-        <div class='hour-section__icon'>
+        <div class='hour-section__icon'
+       tabindex='0'
+       aria-label='${hour.weather[0].description}. Probablididad de lluvia para la ${time} es de ${hour.humidity}%.
+       La temperatura es de ${hour.temp}
+       '>
           <img
           src='${API_URL}/static/icons/${hour.weather[0].icon}@2x.png'
           alt='${hour.weather[0].description}'

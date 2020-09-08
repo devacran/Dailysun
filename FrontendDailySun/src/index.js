@@ -50,7 +50,6 @@ async function initialState(state) {
 initialState(appState);
 //Para saber que ya cargo la pagina, si ya se lanza la funcion router
 async function load() {
-  // !appState.state && (await initialState(appState));
   await router(appState);
 }
 window.addEventListener("load", load); //cuando carga por primera vez

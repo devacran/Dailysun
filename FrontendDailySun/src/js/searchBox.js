@@ -47,7 +47,6 @@ function searchBoxScript(appState) {
     let results = []; //estos se llenan con la api
     //const data = await getData('placeholder.value')
     try {
-      console.log("header", appState);
       const res = await getTodayData({ city: placeHolder.value });
       todayData = res && res.data.body;
       todayData && results.push(todayData);
@@ -67,7 +66,11 @@ function searchBoxScript(appState) {
 
   searchBox.onsubmit = evn => {
     evn.preventDefault();
-    appState.state = { ...appState.state, todayData };
+    appState.state = {
+      ...appState.state,
+      todayData,
+      location: todayData.coord
+    };
   };
   const toggleDropdown = list => {
     if (list.style.display === "block") {

@@ -10,18 +10,18 @@ const UnitsSwitch = appState => {
   const units = appState.state ? appState.state.units : null;
 
   const componentStr = `
-  <label class="switch">
+  <label class="switch" aria-label='Switch para cambiar las unidades'>
     <input id='toggleUnits' type="checkbox" ${
       units === "metric" ? "checked=checked" : ""
     }/>
     <span class="slider round">F° C°</span>
   </label>
-  ${
-    isGeolocation
-      ? `<a id='geo-btn'><img src=${location} alt="boton de activar, desactivar ubicación"/></a>`
-      : `<a id='geo-btn'><img src=${locationOff} alt="boton de activar, desactivar ubicación"/></a>`
-  }
   `;
   unitsSwitch.renderComponent(componentStr);
 };
 export default UnitsSwitch;
+// ${
+//   isGeolocation
+//     ? `<a id='geo-btn'><img src=${location} alt="Ubicacion desactivada"/></a>`
+//     : `<a id='geo-btn'><img src=${locationOff} tabindex='0' alt="Ubicacion activada"/></a>`
+// }

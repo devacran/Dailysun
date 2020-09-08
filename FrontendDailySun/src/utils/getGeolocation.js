@@ -17,7 +17,6 @@ export const getGeolocation = async () => {
       lon: location.coords.longitude
     };
   } catch (error) {
-    console.log("Geolocalizacion error", error);
     throw new Error("Geolocation was not enabled");
   }
 };
@@ -37,7 +36,6 @@ export const getIPLocation = async () => {
       lon: location.data.longitude
     };
   } catch (error) {
-    console.log("Location by Ip error", error);
     throw new Error("Couldn't get IP location");
   }
 };

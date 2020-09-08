@@ -7,10 +7,9 @@ const CityCard = ({ today, units }) => {
   });
   const days = [1, 2, 3]; //Aqui va la info de la api
   const currentDate = utcToLocalDate(today.dt);
-  console.log("units es citycard", units);
   let componentStr = [];
   componentStr.push(`
-    <div class="city-card__info">
+    <div class="city-card__info" aria-live='polite' tabindex='1'>
         <div class="city-card__temp">
             ${Math.floor(today.main.temp)}${units === "metric" ? "C°" : "F°"}
         </div>

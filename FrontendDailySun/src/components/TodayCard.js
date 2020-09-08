@@ -10,7 +10,7 @@ const TodayCard = ({ daily, today, units }) => {
   const days = daily.slice(1, 4); //Aqui va la info de la api
   let componentStr = [];
   componentStr.push(`
-    <div class="today-card__card today-card__card">
+    <div class="today-card__card today-card__card" aria-label="El clima de hoy" aria-live="assertive" tabindex='0'>
       <div class="today-card__clickable"></div>
       <div class="today-card__header--base">
         <a class="today-card__day-title--base">Hoy</a>
@@ -21,6 +21,7 @@ const TodayCard = ({ daily, today, units }) => {
       <div class="today-card__content today-card__content--base">
         <div class="today-card__day-icon--base">
           <img
+            aria-hidden='true'
             src="${API_URL}/static/icons/${today.weather[0].icon}@2x.png"
             alt="${today.weather[0].description}"
           />
@@ -49,7 +50,9 @@ const TodayCard = ({ daily, today, units }) => {
     `);
   days.forEach((day, index) => {
     componentStr.push(`
-      <div class="today-card__card today-card__card--${index}">
+      <div class="today-card__card today-card__card--${index}"  aria-label="El clima de ${utcToLocalTimeDay(
+      day.dt
+    )}" tabindex='0' aria-live="assertive">
           <div class="today-card__clickable"></div>
           <div class="today-card__header today-card__header--${index}">
             <a class="today-card__day-title">${utcToLocalTimeDay(day.dt)}</a>
@@ -57,15 +60,16 @@ const TodayCard = ({ daily, today, units }) => {
       units === "metric" ? "C°" : "F°"
     }</div>
             <div class="today-card__day-icon">
-              <img
-              src='${API_URL}/static/icons/${day.weather[0].icon}@2x.png'
-              alt='${day.weather[0].description}'
+              <img aria-hidden='true'
+                src='${API_URL}/static/icons/${day.weather[0].icon}@2x.png'
+                alt='${day.weather[0].description}'
               />
             </div>
           </div>
           <div class="today-card__content">
           <div class="today-card__day-icon--base">
-            <img src='${API_URL}/static/icons/${day.weather[0].icon}@2x.png'/>
+            <img src='${API_URL}/static/icons/${day.weather[0].icon}@2x.png'
+            alt="${day.weather[0].description}"  aria-hidden='true'/>
           </div>
             <div class='today-card__day-status'>${
               day.weather[0].description
